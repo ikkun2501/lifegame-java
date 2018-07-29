@@ -31,7 +31,7 @@ public class Main {
                 System.exit(0);
             }
 
-            Thread.sleep(500);
+            Thread.sleep(100);
 
             System.out.println("------------------------");
 
@@ -97,17 +97,22 @@ public class Main {
      * @param world
      */
     private static void view(boolean[][] world) {
+
+        StringBuilder sb = new StringBuilder();
+
         for (int y = 0; y < HEIGHT; y++) {
             for (int x = 0; x < WIDTH; x++) {
                 boolean cell = world[y][x];
                 if (cell) {
-                    System.out.print("■");
+                    sb.append("■");
                 } else {
-                    System.out.print("□");
+                    sb.append("□");
                 }
             }
-            System.out.println();
+            sb.append(System.lineSeparator());
         }
+
+        System.out.println(sb.toString());
     }
 
     /**

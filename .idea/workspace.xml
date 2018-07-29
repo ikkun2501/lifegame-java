@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0793c52d-da12-40c1-9edc-4a5e40a1d692" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Kok's Galaxy.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/input.txt" beforeDir="false" afterPath="$PROJECT_DIR$/input.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/example/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/example/Main.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,8 +17,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/example/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="392">
-              <caret line="84" column="38" lean-forward="true" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
+            <state relative-caret-position="134">
+              <caret line="99" column="8" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -165,12 +161,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1532823523990</updated>
-      <workItem from="1532823528528" duration="7246000" />
+      <workItem from="1532823528528" duration="7497000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="7246000" />
+    <option name="totallyTimeSpent" value="7497000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1680" height="1027" extended-state="6" />
@@ -184,9 +180,9 @@
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.52556235" side_tool="true" weight="0.32884398" />
       <window_info anchor="right" id="Maven Projects" order="3" weight="0.32992503" />
       <window_info anchor="bottom" id="Database Changes" show_stripe_button="false" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.34615386" visible="true" weight="0.38304722" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.34615386" visible="true" weight="0.2972103" />
       <window_info anchor="right" id="Version Control" order="13" sideWeight="0.65729237" weight="0.72597134" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.65384614" side_tool="true" visible="true" weight="0.38304722" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.65384614" side_tool="true" visible="true" weight="0.2972103" />
       <window_info id="Capture Tool" order="2" />
       <window_info id="Designer" order="3" />
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49333334" visible="true" weight="0.3009768" />
@@ -245,8 +241,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/example/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="392">
-          <caret line="84" column="38" lean-forward="true" selection-start-line="84" selection-start-column="38" selection-end-line="84" selection-end-column="38" />
+        <state relative-caret-position="134">
+          <caret line="99" column="8" selection-start-line="99" selection-start-column="8" selection-end-line="99" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
