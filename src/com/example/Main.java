@@ -12,9 +12,12 @@ public class Main {
 
     public static void main(String[] args) throws InterruptedException, IOException {
 
-        List<String> list = Files.readAllLines(Paths.get("input.txt"));
+        List<String> list = Files.readAllLines(Paths.get("Kok's Galaxy.txt"));
         HEIGHT = list.size();
         WIDTH = list.get(0).length();
+
+        System.out.println(HEIGHT);
+        System.out.println(WIDTH);
 
         boolean[][] current = init(list);
 
@@ -41,6 +44,7 @@ public class Main {
 
     /**
      * テキストファイルから初期状態を生成
+     *
      * @param list
      * @return
      */
@@ -48,14 +52,14 @@ public class Main {
 
         boolean[][] current = new boolean[HEIGHT][WIDTH];
 
-        for (int i = 0; i < list.size(); i++) {
-            char[] aa = list.get(i).toCharArray();
-            for (int l = 0; l < aa.length; l++) {
-                char c = aa[l];
+        for (int y = 0; y < list.size(); y++) {
+            char[] chars = list.get(y).toCharArray();
+            for (int x = 0; x < chars.length; x++) {
+                char c = chars[x];
                 if (c == '■') {
-                    current[i][l] = true;
+                    current[y][x] = true;
                 } else {
-                    current[i][l] = false;
+                    current[y][x] = false;
                 }
             }
         }
@@ -64,26 +68,23 @@ public class Main {
 
     /**
      * 次世代
+     *
      * @param current
      * @return
      */
     private static boolean[][] nextGenerate(boolean[][] current) {
         boolean[][] next = new boolean[HEIGHT][WIDTH];
-        for (int i = 0; i < HEIGHT; i++) {
-            for (int l = 0; l < WIDTH; l++) {
-                int count = counter(current, i, l);
+        for (int y = 0; y < HEIGHT; y++) {
+            for (int x = 0; x < WIDTH; x++) {
+                int count = counter(current, y, x);
                 if (count <= 1) {
-                    next[i][l] = false;
-                }
-                if (2 <= count && count <= 3 && current[i][l]) {
-                    next[i][l] = true;
-                }
-
-                if (count == 3 && !current[i][l]) {
-                    next[i][l] = true;
-                }
-                if (4 <= count) {
-                    next[i][l] = true;
+                    next[y][x] = false;
+                } else if (2 <= count && count <= 3 && current[y][x]) {
+                    next[y][x] = true;
+                } else if (count == 3 && !current[y][x]) {
+                    next[y][x] = true;
+                } else if (4 <= count) {
+                    next[y][x] = false;
                 }
             }
         }
@@ -92,12 +93,13 @@ public class Main {
 
     /**
      * 標準出力に表示
-     * @param next
+     *
+     * @param world
      */
-    private static void view(boolean[][] next) {
-        for (int i = 0; i < HEIGHT; i++) {
-            for (int l = 0; l < WIDTH; l++) {
-                boolean cell = next[i][l];
+    private static void view(boolean[][] world) {
+        for (int y = 0; y < HEIGHT; y++) {
+            for (int x = 0; x < WIDTH; x++) {
+                boolean cell = world[y][x];
                 if (cell) {
                     System.out.print("■");
                 } else {
@@ -110,53 +112,60 @@ public class Main {
 
     /**
      * 近傍のセルの中から生きたセルの数を返す
+     *
      * @param stage
-     * @param x
      * @param y
+     * @param x
      * @return
      */
-    private static int counter(boolean[][] stage, int x, int y) {
+    private static int counter(boolean[][] stage, int y, int x) {
         int count = 0;
-        if (get(stage, x - 1, y - 1)) count++;
-        if (get(stage, x, y - 1)) count++;
-        if (get(stage, x + 1, y - 1)) count++;
-        if (get(stage, x - 1, y)) count++;
-        if (get(stage, x + 1, y)) count++;
-        if (get(stage, x - 1, y + 1)) count++;
-        if (get(stage, x, y + 1)) count++;
-        if (get(stage, x + 1, y + 1)) count++;
+        if (get(stage, y - 1, x - 1)) count++;
+        if (get(stage, y - 1, x)) count++;
+        if (get(stage, y - 1, x + 1)) count++;
+
+        if (get(stage, y, x - 1)) count++;
+        if (get(stage, y, x + 1)) count++;
+
+        if (get(stage, y + 1, x - 1)) count++;
+        if (get(stage, y + 1, x)) count++;
+        if (get(stage, y + 1, x + 1)) count++;
         return count;
     }
 
     /**
      * 特定の座標の生死を返す。範囲外だったら死として扱う
+     *
      * @param stage
      * @param x
      * @param y
      * @return
      */
-    private static boolean get(boolean[][] stage, int x, int y) {
-        if (x < 0 || x >= WIDTH) {
-            return false;
-        }
+    private static boolean get(boolean[][] stage, int y, int x) {
 
         if (y < 0 || y >= HEIGHT) {
             return false;
         }
 
-        return stage[x][y];
+        if (x < 0 || x >= WIDTH) {
+            return false;
+        }
+
+
+        return stage[y][x];
     }
 
     /**
      * 変更があったかどうか
+     *
      * @param stage
      * @param next
      * @return
      */
     private static final boolean isChange(boolean[][] stage, boolean[][] next) {
-        for (int i = 0; i < HEIGHT; i++) {
-            for (int l = 0; l < WIDTH; l++) {
-                if (stage[i][l] != next[i][l]) {
+        for (int y = 0; y < HEIGHT; y++) {
+            for (int x = 0; x < WIDTH; x++) {
+                if (stage[y][x] != next[y][x]) {
                     return true;
                 }
             }
